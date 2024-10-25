@@ -1,0 +1,130 @@
+﻿@page
+@model Ass02Solution_Se1705_NguyenHoangPhuc_SE173197.Pages.AdminPage.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Edit User Information">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <title>Edit User</title>
+    <style>
+        body {
+            background-color: #f2f2f2; 
+            font-family: Arial, sans-serif; 
+        }
+
+        .container {
+            margin-top: 50px; 
+        }
+
+        .card {
+            border-radius: 15px; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+            background-color: white; 
+        }
+
+        .card-header {
+            background-color: #007bff; 
+            color: white; 
+            border-top-left-radius: 15px; 
+            border-top-right-radius: 15px; 
+        }
+
+        .btn-primary {
+            background-color: #0056b3; 
+        }
+
+            .btn-primary:hover {
+                background-color: #003d80; 
+            }
+
+        .form-label {
+            font-weight: bold; 
+        }
+
+        .form-control {
+            border-radius: 10px; 
+        }
+
+        .form-select {
+            border-radius: 10px; 
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-center">
+                <h1>Edit User</h1>
+            </div>
+            <div class="card-body">
+                <h4 class="mb-4">User Information</h4>
+                <hr />
+                <div class="row">
+                    <div class="col-md-8 mx-auto">
+                        <form method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="User.UserId" />
+                            <div class="form-group mb-3">
+                                <label asp-for="User.Name" class="form-label"></label>
+                                <input asp-for="User.Name" class="form-control" />
+                                <span asp-validation-for="User.Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label asp-for="User.Email" class="form-label"></label>
+                                <input asp-for="User.Email" class="form-control" />
+                                <span asp-validation-for="User.Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label asp-for="User.Password" class="form-label"></label>
+                                <input asp-for="User.Password" class="form-control"/>
+                                <span asp-validation-for="User.Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label asp-for="User.DateOfBirth" class="form-label"></label>
+                                <input asp-for="User.DateOfBirth" class="form-control" type="date" />
+                                <span asp-validation-for="User.DateOfBirth" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label asp-for="User.Address" class="form-label"></label>
+                                <input asp-for="User.Address" class="form-control" />
+                                <span asp-validation-for="User.Address" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label asp-for="User.PhoneNumber" class="form-label"></label>
+                                <input asp-for="User.PhoneNumber" class="form-control" />
+                                <span asp-validation-for="User.PhoneNumber" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label asp-for="User.RoleId" class="form-label"></label>
+                                <select asp-for="User.RoleId" class="form-select" asp-items="ViewBag.RoleId"></select>
+                                <span asp-validation-for="User.RoleId" class="text-danger"></span>
+                            </div>
+                            <div class="form-group d-flex justify-content-between">
+                                <input type="submit" value="Save" class="btn btn-primary" />
+                                <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
