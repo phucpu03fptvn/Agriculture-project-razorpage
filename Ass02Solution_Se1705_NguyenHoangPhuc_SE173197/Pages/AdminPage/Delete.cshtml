@@ -1,0 +1,113 @@
+﻿@page
+@model Ass02Solution_Se1705_NguyenHoangPhuc_SE173197.Pages.AdminPage.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Xác nhận xóa người dùng">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <title>Xóa Người Dùng</title>
+    <style>
+        body {
+            background-color: #f8f9fa; /* Nền trang nhẹ nhàng */
+        }
+        .container {
+            margin-top: 50px; /* Khoảng cách trên */
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng cho card */
+        }
+        .btn-danger {
+            background-color: #dc3545; /* Màu đỏ cho nút xóa */
+        }
+        .btn-danger:hover {
+            background-color: #c82333; /* Màu đỏ đậm khi hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card p-4">
+            <h1 class="text-center">DELETE USER</h1>
+            <h3 class="text-center">Are you sure to delete this user?</h3>
+            <hr />
+            <h4 class="mb-3">Details of information</h4>
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.User.Name)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.User.Name)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.User.Email)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.User.Email)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.User.Password)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.User.Password)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.User.DateOfBirth)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.User.DateOfBirth)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.User.Address)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.User.Address)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.User.PhoneNumber)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.User.PhoneNumber)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.User.RoleName)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.User.RoleName)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.User.CreateAt)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.User.CreateAt)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.User.UpdateAt)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.User.UpdateAt)
+                </dd>
+            </dl>
+
+            <form method="post">
+                <input type="hidden" asp-for="User.UserId" />
+                <div class="d-flex justify-content-between mt-4">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                    <a asp-page="./Index" class="btn btn-secondary">Back to list</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+﻿@page
+@model Ass02Solution_Se1705_NguyenHoangPhuc_SE173197.Pages.AgricultureProductPage.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>AgricultureProduct</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AgricultureProduct.ProductId" />
+            <div class="form-group">
+                <label asp-for="AgricultureProduct.ProductName" class="control-label"></label>
+                <input asp-for="AgricultureProduct.ProductName" class="form-control" />
+                <span asp-validation-for="AgricultureProduct.ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgricultureProduct.Price" class="control-label"></label>
+                <input asp-for="AgricultureProduct.Price" class="form-control" />
+                <span asp-validation-for="AgricultureProduct.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgricultureProduct.StockQuantity" class="control-label"></label>
+                <input asp-for="AgricultureProduct.StockQuantity" class="form-control" />
+                <span asp-validation-for="AgricultureProduct.StockQuantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgricultureProduct.Description" class="control-label"></label>
+                <input asp-for="AgricultureProduct.Description" class="form-control" />
+                <span asp-validation-for="AgricultureProduct.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgricultureProduct.CategoryId" class="control-label"></label>
+                <select asp-for="AgricultureProduct.CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                <span asp-validation-for="AgricultureProduct.CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgricultureProduct.CreatedAt" class="control-label"></label>
+                <input asp-for="AgricultureProduct.CreatedAt" class="form-control" />
+                <span asp-validation-for="AgricultureProduct.CreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgricultureProduct.UpdatedAt" class="control-label"></label>
+                <input asp-for="AgricultureProduct.UpdatedAt" class="form-control" />
+                <span asp-validation-for="AgricultureProduct.UpdatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
