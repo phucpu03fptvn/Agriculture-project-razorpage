@@ -1,0 +1,137 @@
+﻿@page
+@model Ass02Solution_Se1705_NguyenHoangPhuc_SE173197.Pages.AdminPage.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="User Index Page">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <title>User Index</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #003366;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .table {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .table thead {
+            background-color: #003366;
+            color: white;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        .btn-primary {
+            background-color: #0056b3;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #003d80;
+        }
+        .action-links a {
+            color: #003366;
+            text-decoration: none;
+        }
+        .action-links a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>USER MANAGEMENT</h1>
+
+        <p class="text-center">
+            <a asp-page="Create" class="btn btn-primary">Create New</a>
+        </p>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User[0].UserId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User[0].Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User[0].Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User[0].Password)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User[0].DateOfBirth)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User[0].Address)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User[0].PhoneNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User[0].RoleName)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.User)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Password)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateOfBirth)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RoleName)
+                        </td>
+                        <td class="action-links">
+                            <a asp-page="./Edit" asp-route-id="@item.UserId">Edit</a> |
+                            <a asp-page="./Details" asp-route-id="@item.UserId">Details</a> |
+                            <a asp-page="./Delete" asp-route-id="@item.UserId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
