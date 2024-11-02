@@ -19,6 +19,6 @@ namespace Agriculture_Services
 
         public bool UpdateAgricultureCategory(AgricultureCategory agricultureCategory);
 
-        public bool DeleteAgricultureCategory(int id);
+        public bool DeleteAgricultureCategory(int? id);
     }
 }

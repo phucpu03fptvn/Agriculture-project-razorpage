@@ -12,7 +12,7 @@ namespace Agriculture_Repositories
     {
         public bool AddAgricultureCategory(AgricultureCategory agricultureCategory) => AgricultureCategoryDAO.Instance.AddAgricultureCategory(agricultureCategory);
 
-        public bool DeleteAgricultureCategory(int id) => AgricultureCategoryDAO.Instance.DeleteAgricultureCategory(id);
+        public bool DeleteAgricultureCategory(int? id) => AgricultureCategoryDAO.Instance.DeleteAgricultureCategory(id);
 
         public AgricultureCategory GetAgricultureCategory(int id) => AgricultureCategoryDAO.Instance.GetAgricultureCategory(id);
 

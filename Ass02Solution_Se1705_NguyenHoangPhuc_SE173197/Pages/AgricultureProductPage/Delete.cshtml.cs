@@ -53,7 +53,7 @@ namespace Ass02Solution_Se1705_NguyenHoangPhuc_SE173197.Pages.AgricultureProduct
 
             if (agricultureproduct != null)
             {
-                agricultureProductService.DeleteAgricultureProduct(id);
+                agricultureProductService.DeleteAgricultureProduct(agricultureproduct.ProductId);
             }
 
             return RedirectToPage("./Index");

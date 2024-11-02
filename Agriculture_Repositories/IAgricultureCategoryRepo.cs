@@ -20,6 +20,6 @@ namespace Agriculture_Repositories
 
         public bool UpdateAgricultureProduct(AgricultureCategory agricultureCategory);
 
-        public bool DeleteAgricultureCategory(int id);
+        public bool DeleteAgricultureCategory(int? id);
     }
 }
