@@ -44,7 +44,6 @@
         }
         .action-links a {
             color: #003366;
-            text-decoration: none;
         }
         .action-links a:hover {
             text-decoration: underline;
@@ -52,13 +51,17 @@
         .footer {
             margin-top: 20px;
         }
+        .action-links .btn:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>USER MANAGEMENT</h1>
+        <h1 style="font-weight: bold">USER MANAGEMENT</h1>
 
-        <p class="text-center">
+        <p class="">
             <a asp-page="Create" class="btn btn-primary">Create New</a>
         </p>
 
@@ -120,10 +123,16 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.RoleName)
                         </td>
-                        <td class="action-links">
-                            <a asp-page="./Edit" asp-route-id="@item.UserId">Edit</a> |
-                            <a asp-page="./Details" asp-route-id="@item.UserId">Details</a> |
-                            <a asp-page="./Delete" asp-route-id="@item.UserId">Delete</a>
+                        <td class="action-links text-center">
+                            <a asp-page="./Edit" asp-route-id="@item.UserId" class="btn btn-primary btn-sm mx-1" style="border-radius: 20px; color: white">
+                                Edit
+                            </a>
+                            <a asp-page="./Details" asp-route-id="@item.UserId" class="btn btn-success btn-sm mx-1" style="border-radius: 20px; color: white">
+                               Details
+                            </a>
+                            <a asp-page="./Delete" asp-route-id="@item.UserId" class="btn btn-danger btn-sm mx-1" style="border-radius: 20px; color: white" onclick="return confirm('Are you sure you want to delete this item?');">
+                                Delete
+                            </a>
                         </td>
                     </tr>
                 }

@@ -5,69 +5,104 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<div class="container mt-5">
+    <div class="user-details-card shadow rounded p-4" style="background-color: #f9fafb;">
+        <!-- Tiêu đề chính -->
+        <div class="text-center mb-4">
+            <h2 class="fw-bold text-white bg-success rounded p-3" style="background-color: #1c7430;">USER DETAILS</h2>
+            <p class="text-success fs-5">Thông tin chi tiết về người dùng</p>
+        </div>
 
-<div>
-    <h4>User</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.User.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.Email)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.User.Email)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.Password)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.User.Password)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.DateOfBirth)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.User.DateOfBirth)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.Address)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.User.Address)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.PhoneNumber)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.User.PhoneNumber)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.RoleName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.User.RoleName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.CreateAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.User.CreateAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.UpdateAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.User.UpdateAt)
-        </dd>
-    </dl>
+        <!-- Nội dung chi tiết người dùng -->
+        <dl class="row">
+            <dt class="col-md-4 fw-semibold text-success">Name</dt>
+            <dd class="col-md-8 text-dark border-bottom pb-2 mb-3">John Doe</dd>
+
+            <dt class="col-md-4 fw-semibold text-success">Email</dt>
+            <dd class="col-md-8 text-dark border-bottom pb-2 mb-3">john@example.com</dd>
+
+            <dt class="col-md-4 fw-semibold text-success">Password</dt>
+            <dd class="col-md-8 text-dark border-bottom pb-2 mb-3">********</dd>
+
+            <dt class="col-md-4 fw-semibold text-success">Date of Birth</dt>
+            <dd class="col-md-8 text-dark border-bottom pb-2 mb-3">01/01/1990</dd>
+
+            <dt class="col-md-4 fw-semibold text-success">Address</dt>
+            <dd class="col-md-8 text-dark border-bottom pb-2 mb-3">123 Street, City</dd>
+
+            <dt class="col-md-4 fw-semibold text-success">Phone Number</dt>
+            <dd class="col-md-8 text-dark border-bottom pb-2 mb-3">123-456-7890</dd>
+
+            <dt class="col-md-4 fw-semibold text-success">Role</dt>
+            <dd class="col-md-8 text-dark border-bottom pb-2 mb-3">Admin</dd>
+
+            <dt class="col-md-4 fw-semibold text-success">Created At</dt>
+            <dd class="col-md-8 text-dark border-bottom pb-2 mb-3">01/01/2022</dd>
+
+            <dt class="col-md-4 fw-semibold text-success">Updated At</dt>
+            <dd class="col-md-8 text-dark border-bottom pb-2 mb-3">01/02/2023</dd>
+        </dl>
+
+        <!-- Nút điều hướng -->
+        <div class="text-center mt-4">
+            <a asp-page="./Edit" asp-route-id="@Model.User?.UserId" class="btn btn-outline-success btn-sm mx-2 px-4 rounded-pill shadow">Edit</a>
+            <a asp-page="./Index" class="btn btn-outline-secondary btn-sm mx-2 px-4 rounded-pill shadow">Back to List</a>
+        </div>
+    </div>
 </div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.User?.UserId">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
+
+
+<!-- CSS Styles -->
+<style>
+    .user-details-card {
+        background: #f0f8ff;
+        transition: box-shadow 0.3s ease;
+        padding: 1.5rem;
+    }
+
+        .user-details-card:hover {
+            box-shadow: 0 6px 24px rgba(0, 123, 255, 0.15);
+        }
+
+    h2 {
+        color: #007bff;
+    }
+
+    dt {
+        font-size: 1.1rem;
+        color: #5a5a5a;
+    }
+
+    dd {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .btn-outline-primary {
+        border-color: #007bff;
+        color: #007bff;
+    }
+
+        .btn-outline-primary:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .row:nth-child(even) dd {
+        background-color: #f8f9fa; /* Màu nền cho dòng chẵn */
+    }
+
+    .row:nth-child(odd) dd {
+        background-color: #ffffff; /* Màu nền cho dòng lẻ */
+    }
+</style>
+

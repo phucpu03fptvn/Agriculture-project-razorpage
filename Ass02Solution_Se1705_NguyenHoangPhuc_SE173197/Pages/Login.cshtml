@@ -4,54 +4,86 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Login Form</title>
+    <title>Sign In</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f8f9fa;
+        .container {
+            max-width: 450px;
         }
 
-        .login-container {
-            background-color: #ffffff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 400px;
+        .logo {
+            width: 92px;
+            height: 92px;
+            margin-top: 40px;
         }
 
-        h1 {
-            margin-bottom: 1.5rem;
+        .btn-custom {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        .divider {
+            position: relative;
             text-align: center;
+            margin: 30px 0;
         }
+
+            .divider::before,
+            .divider::after {
+                content: "";
+                width: 45%;
+                height: 1px;
+                background-color: #ddd;
+                position: absolute;
+                top: 50%;
+            }
+
+            .divider::before {
+                left: 0;
+            }
+
+            .divider::after {
+                right: 0;
+            }
     </style>
 </head>
 <body>
-    <div class="login-container">
+    <div class="container text-center">
+        <a href="/" class="d-block mt-5">
+            <img src="https://media.loveitopcdn.com/3807/logo-nong-san-nha-que-compressed.jpg" alt="Logo" class="logo">
+        </a>
+        <h2 class="mt-4 fw-bold">Sign In</h2>
+
+        <div class="divider">Or</div>
+
         <form method="post">
-            <h1>LOGIN FORM</h1>
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="txtEmail" required>
+                <input type="email" class="form-control" id="email" placeholder="Email Address" name="txtEmail" required>
             </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="txtPassword" required>
+            <div class="mb-4">
+                <input type="password" class="form-control" id="password" placeholder="Password" name="txtPassword" required>
             </div>
-            <div class="d-flex justify-content-between">
-                <button type="submit" class="btn btn-primary">LOGIN</button>
-                <button type="reset" class="btn btn-danger">RESET</button>
+
+            <div class="d-flex justify-content-between mb-4">
+                <div>
+                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                </div>
+                <a href="reset-password.html">Reset password?</a>
             </div>
+
+            <button type="submit" class="btn btn-primary w-100">Sign In</button>
         </form>
+
+        <p class="mt-4">Don’t have an account yet? <a href="signup.html">New Account</a></p>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
 

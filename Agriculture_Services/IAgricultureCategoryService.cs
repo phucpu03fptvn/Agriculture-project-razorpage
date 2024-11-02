@@ -17,7 +17,7 @@ namespace Agriculture_Services
 
         public List<AgricultureCategory> GetAllAgricultureCategories();
 
-        public bool UpdateAgricultureProduct(AgricultureCategory agricultureCategory);
+        public bool UpdateAgricultureCategory(AgricultureCategory agricultureCategory);
 
         public bool DeleteAgricultureCategory(int id);
     }

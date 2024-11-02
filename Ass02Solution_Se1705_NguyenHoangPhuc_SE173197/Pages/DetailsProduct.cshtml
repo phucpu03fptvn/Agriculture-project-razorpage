@@ -1,0 +1,75 @@
+﻿@page
+@model Ass02Solution_Se1705_NguyenHoangPhuc_SE173197.Pages.DetailsProductModel
+@{
+}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Hình ảnh sản phẩm -->
+        <div class="col-md-6">
+            <div class="product-image">
+                <img src="@Model.Product.Thumbnail" alt="@Model.Product.ProductName" class="img-fluid rounded shadow-sm" />
+            </div>
+        </div>
+
+        <!-- Thông tin sản phẩm -->
+        <div class="col-md-6">
+            <h2 class="product-title text-success">@Model.Product.ProductName</h2>
+            <p class="product-description text-muted mt-3">@Model.Product.Description</p>
+            <p class="product-description text-muted mt-3">@Model.Product.Category</p>
+
+            <div class="product-price text-success display-4 font-weight-bold mt-4">
+                $@Model.Product.Price
+            </div>
+
+            <a class="btn btn-outline-secondary btn-lg mt-3" asp-page="/Index" style="width: 100%;">Back to Products</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f5f8f6; /* Màu nền xanh nhạt */
+        font-family: Arial, sans-serif;
+    }
+
+    /* Hình ảnh sản phẩm */
+    .product-image img {
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    /* Tiêu đề sản phẩm */
+    .product-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+
+    /* Mô tả sản phẩm */
+    .product-description {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    /* Giá sản phẩm */
+    .product-price {
+        color: #28a745;
+    }
+
+    /* Nút */
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+        font-weight: bold;
+    }
+
+    .btn-outline-secondary {
+        color: #6c757d;
+        border-color: #6c757d;
+    }
+
+        .btn-outline-secondary:hover {
+            color: white;
+            background-color: #6c757d;
+        }
+</style>
