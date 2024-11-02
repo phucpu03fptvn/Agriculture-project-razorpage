@@ -5,109 +5,154 @@
     ViewData["Title"] = "Edit";
 }
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Edit User Information">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Edit User</title>
     <style>
         body {
-            background-color: #f2f2f2; 
-            font-family: Arial, sans-serif; 
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
         }
 
         .container {
-            margin-top: 50px; 
+            margin-top: 50px;
         }
 
         .card {
-            border-radius: 15px; 
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
-            background-color: white; 
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background-color: white;
         }
 
         .card-header {
-            background-color: #007bff; 
-            color: white; 
-            border-top-left-radius: 15px; 
-            border-top-right-radius: 15px; 
+            background-color: #1a6320;
+            color: white;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
         }
 
         .btn-primary {
-            background-color: #0056b3; 
+            background-color: #1a6320;
+            border-color: #1a6320;
         }
 
             .btn-primary:hover {
-                background-color: #003d80; 
+                background-color: #145017;
+                border-color: #145017;
             }
 
+        .btn-secondary {
+            background-color: #707b7c;
+            border-color: #707b7c;
+        }
+
         .form-label {
-            font-weight: bold; 
+            font-weight: bold;
+            color: #1a6320;
         }
 
-        .form-control {
-            border-radius: 10px; 
+        .form-control, .form-select {
+            border-radius: 10px;
+            border: 1px solid #bfc9ca;
         }
 
-        .form-select {
-            border-radius: 10px; 
+        .icon {
+            color: #1a6320;
+            margin-right: 8px;
         }
 
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="card">
             <div class="card-header text-center">
-                <h1>Edit User</h1>
+                <h1 style="font-weight: bold">EDIT USER</h1>
             </div>
             <div class="card-body">
-                <h4 class="mb-4">User Information</h4>
-                <hr />
                 <div class="row">
                     <div class="col-md-8 mx-auto">
                         <form method="post">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <input type="hidden" asp-for="User.UserId" />
-                            <div class="form-group mb-3">
-                                <label asp-for="User.Name" class="form-label"></label>
-                                <input asp-for="User.Name" class="form-control" />
-                                <span asp-validation-for="User.Name" class="text-danger"></span>
+
+                            <div class="grid-container">
+                                <div class="form-group mb-3">
+                                    <label asp-for="User.Name" class="form-label">
+                                        <i class="fa fa-user icon"></i> Name
+                                    </label>
+                                    <input asp-for="User.Name" class="form-control" />
+                                    <span asp-validation-for="User.Name" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label asp-for="User.Email" class="form-label">
+                                        <i class="fa fa-envelope icon"></i> Email
+                                    </label>
+                                    <input asp-for="User.Email" class="form-control" />
+                                    <span asp-validation-for="User.Email" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label asp-for="User.PhoneNumber" class="form-label">
+                                        <i class="fa fa-phone icon"></i> Phone Number
+                                    </label>
+                                    <input asp-for="User.PhoneNumber" class="form-control" />
+                                    <span asp-validation-for="User.PhoneNumber" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label asp-for="User.DateOfBirth" class="form-label">
+                                        <i class="fa fa-calendar icon"></i> Date of Birth
+                                    </label>
+                                    <input asp-for="User.DateOfBirth" class="form-control" type="date" />
+                                    <span asp-validation-for="User.DateOfBirth" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group mb-3" style="grid-column: span 2;">
+                                    <label asp-for="User.Address" class="form-label">
+                                        <i class="fa fa-home icon"></i> Address
+                                    </label>
+                                    <input asp-for="User.Address" class="form-control" />
+                                    <span asp-validation-for="User.Address" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label asp-for="User.RoleId" class="form-label">
+                                        <i class="fa fa-user-tag icon"></i> Role
+                                    </label>
+                                    <select asp-for="User.RoleId" class="form-select" asp-items="ViewBag.RoleId"></select>
+                                    <span asp-validation-for="User.RoleId" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label asp-for="User.Password" class="form-label">
+                                        <i class="fa fa-lock icon"></i> Password
+                                    </label>
+                                    <input asp-for="User.Password" class="form-control" />
+                                    <span asp-validation-for="User.Password" class="text-danger"></span>
+                                </div>
                             </div>
-                            <div class="form-group mb-3">
-                                <label asp-for="User.Email" class="form-label"></label>
-                                <input asp-for="User.Email" class="form-control" />
-                                <span asp-validation-for="User.Email" class="text-danger"></span>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label asp-for="User.Password" class="form-label"></label>
-                                <input asp-for="User.Password" class="form-control"/>
-                                <span asp-validation-for="User.Password" class="text-danger"></span>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label asp-for="User.DateOfBirth" class="form-label"></label>
-                                <input asp-for="User.DateOfBirth" class="form-control" type="date" />
-                                <span asp-validation-for="User.DateOfBirth" class="text-danger"></span>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label asp-for="User.Address" class="form-label"></label>
-                                <input asp-for="User.Address" class="form-control" />
-                                <span asp-validation-for="User.Address" class="text-danger"></span>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label asp-for="User.PhoneNumber" class="form-label"></label>
-                                <input asp-for="User.PhoneNumber" class="form-control" />
-                                <span asp-validation-for="User.PhoneNumber" class="text-danger"></span>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label asp-for="User.RoleId" class="form-label"></label>
-                                <select asp-for="User.RoleId" class="form-select" asp-items="ViewBag.RoleId"></select>
-                                <span asp-validation-for="User.RoleId" class="text-danger"></span>
-                            </div>
-                            <div class="form-group d-flex justify-content-between">
+
+                            <div class="form-group d-flex justify-content-between mt-4">
                                 <input type="submit" value="Save" class="btn btn-primary" />
                                 <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
                             </div>

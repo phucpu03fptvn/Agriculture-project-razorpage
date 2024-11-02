@@ -23,6 +23,6 @@ namespace Agriculture_Services
 
         public List<AgricultureCategory> GetAllAgricultureCategories() => _repo.GetAllAgricultureCategories();
 
-        public bool UpdateAgricultureProduct(AgricultureCategory agricultureCategory) => _repo.UpdateAgricultureProduct(agricultureCategory);
+        public bool UpdateAgricultureCategory(AgricultureCategory agricultureCategory) => _repo.UpdateAgricultureProduct(agricultureCategory);
     }
 }

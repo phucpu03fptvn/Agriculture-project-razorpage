@@ -73,6 +73,7 @@ namespace Agriculture_Daos
                                Price = p.Price,
                                StockQuantity = p.StockQuantity,
                                Description = p.Description,
+                               Thumbnail = p.Thumbnail,
                                CategoryName = c.CategoryName 
                            };
 

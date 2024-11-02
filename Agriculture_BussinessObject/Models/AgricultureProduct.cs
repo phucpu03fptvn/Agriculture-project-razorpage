@@ -16,6 +16,8 @@ namespace Agriculture_BussinessObjects.Models
         public int StockQuantity { get; set; }
         public string? Description { get; set; }
 
+        public string? Thumbnail {  get; set; }
+
         // Foreign key cho Category
         public int? CategoryId { get; set; }
 
