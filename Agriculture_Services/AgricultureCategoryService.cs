@@ -17,7 +17,7 @@ namespace Agriculture_Services
         }
         public bool AddAgricultureCategory(AgricultureCategory agricultureCategory) => _repo.AddAgricultureCategory(agricultureCategory);
 
-        public bool DeleteAgricultureCategory(int id) => _repo.DeleteAgricultureCategory(id);
+        public bool DeleteAgricultureCategory(int? id) => _repo.DeleteAgricultureCategory(id);
 
         public AgricultureCategory GetAgricultureCategory(int id) => _repo.GetAgricultureCategory(id);
 

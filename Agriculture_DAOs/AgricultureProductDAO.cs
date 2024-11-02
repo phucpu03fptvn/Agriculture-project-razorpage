@@ -101,7 +101,8 @@ namespace Agriculture_Daos
         bool isSuccess = false;
         try
         {
-            agricultureManagementContext.AgricultureProducts.Remove(GetAgricultureProduct(id));
+            var product = agricultureManagementContext.AgricultureProducts.FirstOrDefault(product => product.ProductId == id);
+            agricultureManagementContext.AgricultureProducts.Remove(product);
             agricultureManagementContext.SaveChanges();
             isSuccess = true;
         }

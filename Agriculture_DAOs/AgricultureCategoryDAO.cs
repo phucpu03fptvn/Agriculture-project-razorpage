@@ -79,18 +79,33 @@ namespace Agriculture_Daos
             return isSuccess;
         }
 
-        public bool DeleteAgricultureCategory(int id)
+        public bool DeleteAgricultureCategory(int? id)
         {
             bool isSuccess = false;
             try
             {
-                agricultureManagementContext.AgricultureCategories.Remove(GetAgricultureCategory(id));
-                agricultureManagementContext.SaveChanges();
-                isSuccess = true;
+                if (id.HasValue)
+                {
+                    var agricultureCategoryExist = agricultureManagementContext.AgricultureCategories
+                        .FirstOrDefault(x => x.CategoryId == id.Value);
+
+                    if (agricultureCategoryExist != null)
+                    {
+                        var hasProducts = agricultureManagementContext.AgricultureProducts
+                            .Any(p => p.CategoryId == id.Value);
+
+                        if (!hasProducts)
+                        {
+                            agricultureManagementContext.AgricultureCategories.Remove(agricultureCategoryExist);
+                            agricultureManagementContext.SaveChanges();
+                            isSuccess = true;
+                        }
+                        
+                    }
+                }
             }
             finally
             {
-
             }
             return isSuccess;
         }

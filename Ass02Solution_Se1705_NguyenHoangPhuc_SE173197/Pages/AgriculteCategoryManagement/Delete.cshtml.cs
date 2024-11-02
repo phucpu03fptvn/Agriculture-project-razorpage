@@ -53,7 +53,7 @@ namespace Ass02Solution_Se1705_NguyenHoangPhuc_SE173197.Pages.AgriculteCategoryM
 
             if (agriculturecategory != null)
             {
-                _context.DeleteAgricultureCategory(id);
+                _context.DeleteAgricultureCategory(agriculturecategory?.CategoryId);
                 
             }
 
